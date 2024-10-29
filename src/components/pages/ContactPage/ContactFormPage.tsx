@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Header } from '../../Header';
 import { Footer } from '../../Footer';
+import { ContactForm } from './ContactForm';
 
 const PageContainer = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ export function ContactFormPage() {
   return (
     <PageContainer>
       <Header />
+      <ContactForm />
       <Footer />
     </PageContainer>
   );

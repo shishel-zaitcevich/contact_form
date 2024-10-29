@@ -11,7 +11,8 @@ const HeaderContainer = styled.header`
   align-items: center;
   color: black;
   text-align: start;
-  padding-bottom: 40px;
+  padding: 40px;
+
   z-index: 100;
 `;
 

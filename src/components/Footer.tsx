@@ -7,6 +7,7 @@ const FooterContainer = styled.footer`
   text-align: center;
   color: black;
   margin-top: 40px;
+  padding-bottom: 40px;
 `;
 
 export function Footer() {

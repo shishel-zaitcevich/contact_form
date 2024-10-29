@@ -13,10 +13,11 @@ const FirstSectionContainer = styled.section`
   min-height: 351px;
   height: 100%;
   font-size: 32px;
-  background-color: #ebe9e9;
+  background-color: #f5f5f5;
   padding: 40px;
   padding-bottom: 80px;
   text-align: start;
+  border-top: #c6c2c2 1px solid;
 `;
 
 const DescriptionBlock = styled.div`
