@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { ContactButton } from './Button';
+import { Title } from './Titles';
 
 const HeaderContainer = styled.header`
   position: sticky;
@@ -9,12 +10,14 @@ const HeaderContainer = styled.header`
   align-items: center;
   color: black;
   text-align: start;
+  padding-bottom: 40px;
+  z-index: 100;
 `;
 
 export function Header() {
   return (
     <HeaderContainer>
-      <h3> Some Company</h3>
+      <Title text={'Some Company'}></Title>
       <ContactButton />
     </HeaderContainer>
   );

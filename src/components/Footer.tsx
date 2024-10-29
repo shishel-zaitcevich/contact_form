@@ -1,17 +1,18 @@
 import { styled } from 'styled-components';
+import { Title } from './Titles';
 
 const FooterContainer = styled.footer`
   position: sticky;
   bottom: 0;
   text-align: center;
   color: black;
-  padding: 10px;
+  margin-top: 40px;
 `;
 
 export function Footer() {
   return (
     <FooterContainer>
-      <h3>Some Company 2024</h3>
+      <Title text={'Some Company 2024'}></Title>
     </FooterContainer>
   );
 }

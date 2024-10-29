@@ -1,20 +1,23 @@
 import { styled } from 'styled-components';
-import { FirstBlock } from './FirstBlock';
+import { FirstSection } from './FirstSection';
+import { MiddleSection } from './MiddleSection';
+import { LastSection } from './LastSection';
 
 const MainContainer = styled.main`
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 20px;
   text-align: center;
   font-size: 48px;
-  beckground-color: light-grey;
 `;
 
 export function MainContent() {
   return (
     <MainContainer>
-      <FirstBlock />
+      <FirstSection />
+      <MiddleSection />
+      <LastSection />
     </MainContainer>
   );
 }
