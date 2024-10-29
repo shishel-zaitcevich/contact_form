@@ -1,23 +1,31 @@
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import styled from 'styled-components';
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+const StyledButton = styled(Button)`
+  && {
+    width: 177px;
+    height: 31px;
+    font-size: 0.875rem;
+    background-color: black;
+    border-radius: 10px;
+    text-transform: none;
+    color: white;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+`;
 
 export function ContactButton() {
   return (
-    <Link to="/contact" style={{ textDecoration: 'none' }}>
-      <Button
-        variant="contained"
-        size="small"
-        sx={{
-          width: '177px',
-          height: '31px',
-          fontSize: '0.875rem',
-          background: 'black',
-          borderRadius: '10px',
-          textTransform: 'none',
-        }}
-      >
-        Contact us
-      </Button>
-    </Link>
+    <StyledLink to="/contact">
+      <StyledButton>Contact us</StyledButton>
+    </StyledLink>
   );
 }
