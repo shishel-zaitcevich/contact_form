@@ -7,10 +7,9 @@ const LastSectionContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
   min-height: 150px;
-
   font-size: 32px;
   background-color: #ebe9e9;
   padding: 40px;

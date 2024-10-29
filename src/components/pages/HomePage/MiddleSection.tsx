@@ -10,7 +10,8 @@ const MiddleSectionContainer = styled.section`
   align-items: center;
   justify-content: space-between;
   font-size: 32px;
-  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   text-align: start;
 `;
 

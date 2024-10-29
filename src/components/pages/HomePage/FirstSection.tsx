@@ -8,13 +8,14 @@ const FirstSectionContainer = styled.section`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
-  max-height: 351px;
+  min-height: 351px;
   height: 100%;
   font-size: 32px;
   background-color: #ebe9e9;
   padding: 40px;
+  padding-bottom: 80px;
   text-align: start;
 `;
 

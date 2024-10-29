@@ -11,7 +11,8 @@ const BlockContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   font-size: 32px;
-  padding: 40px;
+  gap: 15px;
+  // padding: 40px;
   text-align: start;
 `;
 
@@ -26,13 +27,15 @@ interface ContentListProps {
 }
 
 const ContentListContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 40px;
+  gap: 40px;
+  column-gap: 60px;
 `;
 
 export function ContentList({ items }: ContentListProps) {

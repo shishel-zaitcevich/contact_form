@@ -3,6 +3,7 @@ import { ContactButton } from './Button';
 import { Title } from './Titles';
 
 const HeaderContainer = styled.header`
+  width: 100%;
   position: sticky;
   top: 0;
   display: flex;

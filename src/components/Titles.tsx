@@ -6,6 +6,7 @@ interface MainTitleProps {
 
 const MainTitleContainer = styled.h1`
   margin: 0;
+  margin-bottom: 40px;
 `;
 
 export function MainTitle({ text }: MainTitleProps) {
