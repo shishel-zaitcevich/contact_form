@@ -148,7 +148,7 @@ export function ContactForm() {
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
-      // setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
+      setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
     }
     console.log(formData);
   };
