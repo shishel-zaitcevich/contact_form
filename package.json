@@ -9,10 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint --ext .ts,.tsx src/",
     "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json,css,md}\"",
-    "vercel-dev": "vercel dev", 
-    "vercel-build": "vercel build", 
-    "vercel-start": "vercel start" 
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,css,md}\""
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
