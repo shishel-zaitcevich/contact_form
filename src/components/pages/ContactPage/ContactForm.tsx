@@ -128,9 +128,13 @@ export function ContactForm() {
   const hadleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/contact', formData, {
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await axios.post(
+        'https://contact-form-theta-three.vercel.app/api/contact',
+        formData,
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       if (response.status === 200) {
         // navigate('/contact/confirmation');
         localStorage.setItem('responseMessage', response.data.message);
