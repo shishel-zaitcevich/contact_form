@@ -120,13 +120,9 @@ export function ContactForm() {
   const hadleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        '/.netlify/functions/contact',
-        formData,
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      const response = await axios.post('/', formData, {
+        headers: { 'Content-Type': 'application/json' },
+      });
       if (response.status === 200) {
         navigate('/contact/confirmation');
       }
