@@ -1,7 +1,6 @@
 import { Button, InputLabel, TextField } from '@mui/material';
 import axios from 'axios';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 const FormContainer = styled.main`
@@ -103,14 +102,23 @@ const StyledButton = styled(Button)`
 `;
 
 export function ContactForm() {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [responseMessage, setResponseMessage] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   // const [success, setSuccess] = useState(false);
   // const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const message = localStorage.getItem(responseMessage);
+    if (message) {
+      setResponseMessage(message);
+      localStorage.removeItem('responseMessage');
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -120,56 +128,66 @@ export function ContactForm() {
   const hadleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/', formData, {
+      const response = await axios.post('/api/contact', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.status === 200) {
-        navigate('/contact/confirmation');
+        // navigate('/contact/confirmation');
+        localStorage.setItem('responseMessage', response.data.message);
+        window.location.reload();
+        setResponseMessage(`Спасибо за проявленный интерес, ${formData.name}`);
+        setIsSubmitted(true);
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
-
-      // console.log(formData);
+      setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
     }
+    // console.log(formData);
   };
   return (
     <FormContainer>
-      <FormTitle>Only CTA on the page</FormTitle>
-      <FormWrapper>
-        <form onSubmit={hadleSubmit}>
-          <StyledInputLabel shrink>Name</StyledInputLabel>
-          <StyledTextField
-            placeholder="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="small"
-            required
-          />
-          <StyledInputLabel shrink>Email</StyledInputLabel>
-          <StyledTextField
-            placeholder="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            type="email"
-            required
-            className="small"
-          />
-          <StyledInputLabel shrink>Message</StyledInputLabel>
-          <StyledTextField
-            placeholder="Message"
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            multiline
-            rows={3}
-            required
-            className="large"
-          />
-          <StyledButton type="submit">Submit</StyledButton>
-        </form>
-      </FormWrapper>
+      {isSubmitted ? (
+        <FormTitle>{responseMessage}</FormTitle>
+      ) : (
+        <>
+          <FormTitle>Only CTA on the page</FormTitle>
+          <FormWrapper>
+            <form onSubmit={hadleSubmit}>
+              <StyledInputLabel shrink>Name</StyledInputLabel>
+              <StyledTextField
+                placeholder="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="small"
+                required
+              />
+              <StyledInputLabel shrink>Email</StyledInputLabel>
+              <StyledTextField
+                placeholder="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                type="email"
+                required
+                className="small"
+              />
+              <StyledInputLabel shrink>Message</StyledInputLabel>
+              <StyledTextField
+                placeholder="Message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                multiline
+                rows={3}
+                required
+                className="large"
+              />
+              <StyledButton type="submit">Submit</StyledButton>
+            </form>
+          </FormWrapper>
+        </>
+      )}
     </FormContainer>
   );
 }
