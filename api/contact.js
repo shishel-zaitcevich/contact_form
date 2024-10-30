@@ -1,23 +1,20 @@
 module.exports = (req, res) => {
-    try {
-        if (req.method !== 'POST') {
-            return res.status(405).json({ message: 'Метод не поддерживается' });
-        }
-
-        const { name, email, message } = req.body;
-
-        if (!name || !email || !message) {
-            return res.status(400).json({ message: 'Все поля обязательны для заполнения.' });
-        }
-
-        console.log(`Получено сообщение от ${name}:`, {
-            email,
-            message,
-        });
-
-        res.status(200).json({ message: `Спасибо за проявленный интерес, ${name}!` });
-    } catch (error) {
-        console.error('Ошибка в API:', error);
-        res.status(500).json({ message: 'Внутренняя ошибка сервера.' });
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Или укажите конкретный домен
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS'); // Разрешенные методы
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Разрешенные заголовки
+    
+    if (req.method === 'OPTIONS') {
+      return res.status(200).end(); // Отвечаем на preflight-запрос
     }
-};
+  
+    if (req.method !== 'POST') {
+      return res.status(405).json({ message: 'Метод не поддерживается' });
+    }
+  
+    const { name, email, message } = req.body;
+  
+    console.log(`Получено сообщение от ${name}:`, { email, message });
+  
+    res.status(200).json({ message: `Спасибо за проявленный интерес, ${name}!` });
+  };
+  

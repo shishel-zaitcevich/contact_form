@@ -130,7 +130,7 @@ export function ContactForm() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'https://contact-form-d93j0o1wm-shishels-projects-e09cf028.vercel.app/api/contact',
+        'https://contact-form-theta-three.vercel.app',
         formData,
         {
           headers: { 'Content-Type': 'application/json' },
