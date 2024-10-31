@@ -162,36 +162,6 @@ export function ContactForm() {
     console.log(formData);
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const response = await fetch(
-  //       'https://contact-form-theta-three.vercel.app/contact/api/contact',
-  //       {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       setResponseMessage(`Спасибо за проявленный интерес, ${formData.name}`);
-  //       setIsSubmitted(true);
-  //     } else {
-  //       throw new Error(`Ошибка: ${response.status}`);
-  //     }
-  //   } catch (error) {
-  //     console.error('Ошибка отправки формы:', error);
-  //     setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
-  //   }
-
-  //   console.log(formData);
-  // };
-
   return (
     <FormContainer>
       {isSubmitted ? (
