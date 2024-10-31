@@ -135,32 +135,63 @@ export function ContactForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const hadleSubmit = async (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       'https://contact-form-theta-three.vercel.app/contact/api/contact',
+  //       formData,
+  //       // const response = await axios.post(
+  //       //   'http://localhost:5173/contact/api/contact',
+  //       //   formData,
+  //       {
+  //         headers: { 'Content-Type': 'application/json' },
+  //       }
+  //     );
+  //     if (response.status === 200) {
+  //       // navigate('/contact/confirmation');
+  //       // localStorage.setItem('responseMessage', response.data.message);
+  //       // window.location.reload();
+  //       setResponseMessage(`Спасибо за проявленный интерес, ${formData.name}`);
+  //       setIsSubmitted(true);
+  //     }
+  //   } catch (error) {
+  //     console.error('Ошибка отправки формы:', error);
+  //     setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
+  //   }
+  //   console.log(formData);
+  // };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post(
+      const response = await fetch(
         'https://contact-form-theta-three.vercel.app/contact/api/contact',
-        formData,
-        // const response = await axios.post(
-        //   'http://localhost:5173/contact/api/contact',
-        //   formData,
         {
-          headers: { 'Content-Type': 'application/json' },
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
         }
       );
-      if (response.status === 200) {
-        // navigate('/contact/confirmation');
-        // localStorage.setItem('responseMessage', response.data.message);
-        // window.location.reload();
+
+      if (response.ok) {
+        const data = await response.json();
         setResponseMessage(`Спасибо за проявленный интерес, ${formData.name}`);
         setIsSubmitted(true);
+      } else {
+        throw new Error(`Ошибка: ${response.status}`);
       }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
       setResponseMessage('Ошибка отправки формы. Попробуйте еще раз.');
     }
+
     console.log(formData);
   };
+
   return (
     <FormContainer>
       {isSubmitted ? (
@@ -169,7 +200,7 @@ export function ContactForm() {
         <>
           <FormTitle>Only CTA on the page</FormTitle>
           <FormWrapper>
-            <form onSubmit={hadleSubmit}>
+            <form onSubmit={handleSubmit}>
               <StyledInputLabel shrink>Name</StyledInputLabel>
               <StyledTextField
                 placeholder="Name"
