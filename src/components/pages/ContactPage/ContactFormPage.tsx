@@ -12,7 +12,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;

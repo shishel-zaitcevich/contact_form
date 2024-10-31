@@ -16,6 +16,9 @@ const FormContainer = styled.main`
   background-color: #f5f5f5;
   border-top: #c6c2c2 1px solid;
   border-bottom: #c6c2c2 1px solid;
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -82,7 +85,7 @@ const FormTitle = styled.h1`
   letter-spacing: ${useRem(-2.16)};
   color: #413e3e;
   margin-bottom: ${useRem(40)};
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     margin-bottom: ${useRem(20)};
     font-size: ${useRem(32)};
   }

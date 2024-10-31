@@ -15,7 +15,7 @@ const MiddleSectionContainer = styled.section`
   margin-top: ${useRem(40)};
   margin-bottom: ${useRem(40)};
   text-align: start;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding: ${useRem(10)};
     margin-top: ${useRem(0)};
     margin-bottom: ${useRem(20)};

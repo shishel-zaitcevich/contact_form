@@ -14,9 +14,8 @@ const BlockContainer = styled.div`
   justify-content: space-between;
   font-size: ${useRem(32)};
   gap: ${useRem(15)};
-  // padding: ${useRem(40)};
   text-align: start;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     gap: ${useRem(10)};
     max-width: 100%;
   }
@@ -33,6 +32,15 @@ interface ContentListProps {
 }
 
 const ContentListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
+`;
+
+const ContentListBlock = styled.div`
   max-width: ${useRem(1280)};
   width: 100%;
   display: flex;
@@ -42,8 +50,8 @@ const ContentListContainer = styled.div`
   padding: ${useRem(40)};
   gap: ${useRem(40)};
   column-gap: ${useRem(60)};
-  @media (max-width: 600px) {
-    padding: ${useRem(10)};
+  @media (max-width: 768px) {
+    padding: ${useRem(0)};
     gap: ${useRem(15)};
   }
 `;
@@ -52,12 +60,14 @@ export function ContentList({ items }: ContentListProps) {
   return (
     <ContentListContainer>
       <MainTitle text={'Also very important title'}></MainTitle>
-      {items.map((item, index) => (
-        <BlockContainer key={index}>
-          <Title text={item.title} />
-          <TextContainer>{item.text}</TextContainer>
-        </BlockContainer>
-      ))}
+      <ContentListBlock>
+        {items.map((item, index) => (
+          <BlockContainer key={index}>
+            <Title text={item.title} />
+            <TextContainer>{item.text}</TextContainer>
+          </BlockContainer>
+        ))}
+      </ContentListBlock>
     </ContentListContainer>
   );
 }

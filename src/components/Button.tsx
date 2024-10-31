@@ -21,7 +21,7 @@ const StyledButton = styled(Button)`
     &:hover {
       background-color: #333;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       width: ${useRem(130)};
       font-size: ${useRem(14)};
     }

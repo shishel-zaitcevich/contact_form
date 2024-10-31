@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
   color: black;
   margin-top: ${useRem(40)};
   padding-bottom: ${useRem(40)};
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding: ${useRem(10)};
   }
 `;

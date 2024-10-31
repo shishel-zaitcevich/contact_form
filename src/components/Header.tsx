@@ -16,7 +16,7 @@ const HeaderContainer = styled.header`
   text-align: start;
   padding: ${useRem(40)};
   z-index: 100;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding: ${useRem(10)};
   }
 `;

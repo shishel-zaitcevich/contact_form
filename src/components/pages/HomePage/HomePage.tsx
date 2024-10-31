@@ -12,7 +12,7 @@ const PageContainer = styled.div`
   min-height: 100vh;
   margin: 0 auto;
   margin-right: 0;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;
