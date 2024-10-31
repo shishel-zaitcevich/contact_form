@@ -4,36 +4,61 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
+const useRem = (px: number): string => `${px / 16}rem`;
+
 const FirstSectionContainer = styled.section`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 1280px;
+  max-width: ${useRem(1280)};
   width: 100%;
-  min-height: 351px;
+  min-height: ${useRem(351)};
   height: 100%;
-  font-size: 32px;
+  font-size: ${useRem(32)};
   background-color: #f5f5f5;
-  padding: 40px;
-  padding-bottom: 80px;
+  padding: ${useRem(40)};
+  padding-bottom: ${useRem(80)};
   text-align: start;
   border-top: #c6c2c2 1px solid;
+  @media (max-width: 920px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    font-size: ${useRem(18)};
+    padding: ${useRem(10)};
+  }
 `;
 
 const DescriptionBlock = styled.div`
-  width: 362px;
+  width: ${useRem(362)};
   display: flex;
   flex-direction: column;
+  @media (max-width: 920px) {
+    margin-bottom: ${useRem(40)};
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-bottom: ${useRem(40)};
+  }
 `;
 
 const TextContainer = styled.p`
-  font-size: 16px;
+  font-size: ${useRem(16)};
   line-height: 1.5;
+  @media (max-width: 600px) {
+    font-size: ${useRem(16)};
+  }
 `;
 
 const VideoContainer = styled.div`
-  max-width: 500px;
+  max-width: ${useRem(500)};
   width: 100%;
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
 `;
 
 export function FirstSection() {

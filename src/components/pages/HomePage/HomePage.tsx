@@ -7,10 +7,14 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   margin-right: 0;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export function HomePage() {

@@ -5,12 +5,16 @@ import { ContactForm } from './ContactForm';
 
 const PageContainer = styled.div`
   display: flex;
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export function ContactFormPage() {

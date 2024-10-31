@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
+const useRem = (px: number): string => `${px / 16}rem`;
+
 const FormContainer = styled.main`
   width: 100%;
   height: 848px;
@@ -10,21 +12,21 @@ const FormContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: ${useRem(20)};
   background-color: #f5f5f5;
   border-top: #c6c2c2 1px solid;
   border-bottom: #c6c2c2 1px solid;
 `;
 
 const FormWrapper = styled.div`
-  max-width: 320px;
+  max-width: ${useRem(320)};
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  padding: 20px;
+  padding: ${useRem(20)};
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -32,17 +34,17 @@ const FormWrapper = styled.div`
 const StyledTextField = styled(TextField)`
   & .MuiInputBase-root {
     border-radius: 10px;
-    width: 260px;
+    width: ${useRem(260)};
     height: 100%;
-    margin-bottom: 20px;
-    font-size: 16px;
+    margin-bottom: ${useRem(20)};
+    font-size: ${useRem(16)};
     font-family: Inter;
   }
   &.small .MuiInputBase-root {
-    max-height: 40px;
+    max-height: ${useRem(40)};
   }
   &.large .MuiInputBase-root {
-    max-height: 80px;
+    max-height: ${useRem(80)};
     resize: vertical;
   }
   & .MuiOutlinedInput-root {
@@ -69,17 +71,21 @@ const StyledTextField = styled(TextField)`
 
 const StyledInputLabel = styled(InputLabel)`
   text-align: left;
-  margin-left: 10px;
+  margin-left: ${useRem(10)};
   font-family: Inter;
 `;
 
 const FormTitle = styled.h1`
-  font-size: 72px;
+  font-size: ${useRem(72)};
   font-family: Inter;
   font-weight: 700;
-  letter-spacing: -2.16px;
+  letter-spacing: ${useRem(-2.16)};
   color: #413e3e;
-  margin-bottom: 40px;
+  margin-bottom: ${useRem(40)};
+  @media (max-width: 600px) {
+    margin-bottom: ${useRem(20)};
+    font-size: ${useRem(32)};
+  }
 `;
 
 const StyledButton = styled(Button)`
